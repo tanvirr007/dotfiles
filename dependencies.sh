@@ -17,7 +17,7 @@ echo "All dependencies installed successfully!"
 
 # OneShot repository
 echo "Cloning OneShot repository..."
-git clone https://github.com/tanvir-projects-archive/OneShot.git OneShot
+git clone https://github.com/tanvir-projects-archive/OneShot.git "$HOME/OneShot"
 
 # Pixeldrain
 echo "Downloading and setting up Pixeldrain..."
