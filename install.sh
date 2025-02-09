@@ -6,6 +6,7 @@ cd "$(dirname "$0")" || exit 1
 # Update packages and install dependencies
 pkg update -y
 pkg install git zsh -y
+termux-setup-storage
 
 # Configure Git settings
 git config --global user.email "md.tanvirhasannijum@gmail.com"
