@@ -46,5 +46,15 @@ fi
 # Copy custom zshrc config
 cp zshrc "$HOME/.zshrc"
 
+# Install and apply font in Termux
+FONT_DIR="$HOME/.termux"
+FONT_FILE="MesloLGSNerdFont-Regular.ttf"
+
+mkdir -p "$FONT_DIR"
+cp "$FONT_FILE" "$FONT_DIR/font.ttf"
+
+# Reload Termux settings
+termux-reload-settings
+
 # Reload Zsh
 exec zsh
