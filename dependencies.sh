@@ -12,19 +12,31 @@ DEPENDENCIES=(
 for package in "${DEPENDENCIES[@]}"; do
     if ! command -v "$package" &>/dev/null; then
         while true; do
-            read -rp "Do you want to install $package? (y/N): " choice
-            choice=${choice,,}  # Convert to lowercase
+            echo "➜ Do you want to install $package? (y/N): "
+            read -r response
+            if [[ -z "$response" ]]; then
+                echo "Please provide a valid response (y/Y or n/N)."
+                continue
+            fi
 
-            if [[ "$choice" == "y" ]]; then
-                pkg install "$package" -y && clear
+            # If chooses 'y' or 'Y', install the package
+            if [[ "$response" =~ ^[yY]$ ]]; then
+                echo "Installing $package..."
+                pkg install "$package" -y
                 break
-            elif [[ "$choice" == "n" ]]; then
-                echo "Skipped $package."
+            # If chooses 'n' or 'N', skip the installation
+            elif [[ "$response" =~ ^[nN]$ ]]; then
+                echo "Skipping $package."
                 break
             else
-                echo "Invalid input. Please enter y or n."
+                echo "Invalid input. Please answer with y/Y or n/N."
             fi
         done
+        clear
+    else
+        # Skip and clear if already installed
+        echo "$package is already installed, skipping."
+        clear
     fi
 done
 
