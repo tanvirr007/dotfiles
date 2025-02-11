@@ -4,6 +4,7 @@
 REPOS=(
     "https://github.com/tanvir-projects-archive/BanvirMediaDownloader.git"
     "https://github.com/tanvirr007/build-script-live.git"
+    "https://github.com/tanvir-projects-archive/OneShot"
     "https://github.com/tanvir-projects-archive/stock-tracker.git"
     "https://github.com/tanvirr007/bmi-calculator.git"
     "https://github.com/tanvirr007/crave.git"
