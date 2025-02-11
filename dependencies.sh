@@ -8,9 +8,11 @@ DEPENDENCIES=(
     git gh tree fd tmate android-tools python-pillow termux-tools termux-exec openssh openssl-tool root-repo tsu python wpa-supplicant pixiewps iw openssl zsh curl rxfetch tmux htop byobu jq wget bc proot
 )
 
-# Install dependencies
+# Install dependencies if not already installed
 for package in "${DEPENDENCIES[@]}"; do
-    pkg install "$package" -y
+    if ! command -v "$package" &>/dev/null; then
+        pkg install "$package" -y
+    fi
 done
 
 echo "All dependencies installed successfully!"
