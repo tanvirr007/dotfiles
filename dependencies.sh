@@ -11,7 +11,20 @@ DEPENDENCIES=(
 # Install dependencies if not already installed
 for package in "${DEPENDENCIES[@]}"; do
     if ! command -v "$package" &>/dev/null; then
-        pkg install "$package" -y
+        while true; do
+            read -rp "Do you want to install $package? (y/N): " choice
+            choice=${choice,,}  # Convert to lowercase
+
+            if [[ "$choice" == "y" ]]; then
+                pkg install "$package" -y && clear
+                break
+            elif [[ "$choice" == "n" ]]; then
+                echo "Skipped $package."
+                break
+            else
+                echo "Invalid input. Please enter y or n."
+            fi
+        done
     fi
 done
 
