@@ -6,6 +6,15 @@ ZSH_THEME="spaceship"
 # Aliases
 alias c="clear && rxfetch"
 alias h="htop"
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit"
+alias gp="git push"
+alias gpl="git pull"
+alias gl="git log --oneline --graph --decorate --all"
+alias gb="git branch -a"
+alias gcl="git clone"
+alias gdf="git diff"
 
 # Plugins
 plugins=(git)
