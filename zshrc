@@ -3,6 +3,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set Spaceship Prompt
 ZSH_THEME="spaceship"
 
+# Aliases
+alias c="clear && rxfetch"
+alias h="htop"
+
 # Plugins
 plugins=(git)
 source $HOME/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
