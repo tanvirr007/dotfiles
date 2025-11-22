@@ -5,6 +5,7 @@ ZSH_THEME="spaceship"
 
 # Aliases
 alias c="clear && rxfetch"
+alias dev="cd ~/storage/downloads/termux"
 alias h="htop"
 alias gs="git status"
 alias ga="git add ."
@@ -25,6 +26,15 @@ source $HOME/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 SPACESHIP_PROMPT_ADD_NEWLINE=true    # Adds a newline before the prompt
 SPACESHIP_USER_SHOW=always           # Display username always
 SPACESHIP_TIME_SHOW=false             # Don't show the current time
+
+# Auto-create and enter default directory
+TARGET="$HOME/storage/downloads/termux"
+
+if [ ! -d "$TARGET" ]; then
+    mkdir -p "$TARGET"
+fi
+
+cd "$TARGET"
 
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
